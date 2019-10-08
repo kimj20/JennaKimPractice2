@@ -4,27 +4,16 @@ library(dplyr)
 library(tidyverse)
 
 
-health <- filter(recent_grads, Major_category == "Health")
 
-# Define UI for application that draws a histogram
-ui <- fluidPage(
+ui = fluidPage(    
   
-  # Application title
-  titlePanel("Recent Health Grads Data"),
+  titlePanel("Grad Salary by Major"),
   
-  # Sidebar with a slider input for number of grads 
-  sidebarLayout(
-    sidebarPanel(
-      sliderInput("grads",
-                  "Number of grads:",
-                  min = 1,
-                  max = 50,
-                  value = 30)
-    ),
+  sidebarLayout(      
     
-    # Show a plot of the generated distribution
-    mainPanel(
-      plotOutput("distPlot")
-    )
+    sidebarPanel(
+      selectInput(inputId = "grads.by.major",
+                  label = "Majors", 
+                  choices = "Majors"))
   )
-)
+  mainPanel())
